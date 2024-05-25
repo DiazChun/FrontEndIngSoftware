@@ -1,0 +1,21 @@
+<div class="container">
+    <h2>Registro de Derechos Humanos</h2>
+    <form [formGroup]="derechosForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" class="form-control" />
+        <div *ngIf="derechosForm.get('nombre')?.invalid && (derechosForm.get('nombre')?.dirty || derechosForm.get('nombre')?.touched)">
+          <small class="text-danger">El nombre es obligatorio.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+        <div *ngIf="derechosForm.get('descripcion')?.invalid && (derechosForm.get('descripcion')?.dirty || derechosForm.get('descripcion')?.touched)">
+          <small class="text-danger">La descripción es obligatoria.</small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="derechosForm.invalid">Registrar</button>
+    </form>
+  </div>
+  

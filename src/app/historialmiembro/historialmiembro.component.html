@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>Historial de Participación del Miembro</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="miembroId">ID del Miembro</label>
+        <input type="number" id="miembroId" [(ngModel)]="miembroId" name="miembroId" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Buscar Historial</button>
+    </form>
+  
+    <div *ngIf="miembro">
+      <h3>Información del Miembro</h3>
+      <p>ID: {{ miembro.id }}</p>
+      <p>Persona ID: {{ miembro.personaId }}</p>
+      <p>Fecha de Ingreso: {{ miembro.fechaIngreso | date }}</p>
+      <p>Activo: {{ miembro.activo ? 'Sí' : 'No' }}</p>
+    </div>
+  
+    <div *ngIf="proyectos.length > 0">
+      <h3>Proyectos en los que ha participado</h3>
+      <ul>
+        <li *ngFor="let proyecto of proyectos">
+          <h4>{{ proyecto.nombre }}</h4>
+          <p>{{ proyecto.descripcion }}</p>
+          <p>Fecha de Inicio: {{ proyecto.fechaInicio | date }}</p>
+          <p>Fecha de Fin: {{ proyecto.fechaFin | date }}</p>
+          <p>Presupuesto: {{ proyecto.presupuesto | currency }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Creación de Proyecto</h2>
+    <form [formGroup]="proyectoForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="nombre">Nombre del Proyecto</label>
+        <input type="text" id="nombre" formControlName="nombre" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea id="descripcion" formControlName="descripcion" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="fechaInicio">Fecha de Inicio</label>
+        <input type="date" id="fechaInicio" formControlName="fechaInicio" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="fechaFin">Fecha de Fin</label>
+        <input type="date" id="fechaFin" formControlName="fechaFin" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="presupuesto">Presupuesto</label>
+        <input type="number" id="presupuesto" formControlName="presupuesto" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!proyectoForm.valid">Crear Proyecto</button>
+    </form>
+  </div>
+  

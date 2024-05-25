@@ -1,0 +1,43 @@
+<div class="container">
+    <h2>Documentación de Derechos Humanos</h2>
+    <form [formGroup]="documentacionForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="miembroId">Miembro</label>
+        <select id="miembroId" formControlName="miembroId" class="form-control">
+          <option *ngFor="let miembro of miembros" [value]="miembro.id">
+            {{ miembro.id }} {{ miembro.personaId }}
+          </option>
+        </select>
+        <div *ngIf="documentacionForm.get('miembroId')?.invalid && (documentacionForm.get('miembroId')?.dirty || documentacionForm.get('miembroId')?.touched)">
+          <small class="text-danger">Seleccionar un miembro es obligatorio.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="derechoId">Derecho Humano</label>
+        <select id="derechoId" formControlName="derechoId" class="form-control">
+          <option *ngFor="let derecho of derechos" [value]="derecho.id">
+            {{ derecho.nombre }}
+          </option>
+        </select>
+        <div *ngIf="documentacionForm.get('derechoId')?.invalid && (documentacionForm.get('derechoId')?.dirty || documentacionForm.get('derechoId')?.touched)">
+          <small class="text-danger">Seleccionar un derecho humano es obligatorio.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fecha">Fecha</label>
+        <input type="datetime-local" id="fecha" formControlName="fecha" class="form-control" />
+        <div *ngIf="documentacionForm.get('fecha')?.invalid && (documentacionForm.get('fecha')?.dirty || documentacionForm.get('fecha')?.touched)">
+          <small class="text-danger">La fecha es obligatoria.</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="detalles">Detalles</label>
+        <textarea id="detalles" formControlName="detalles" class="form-control"></textarea>
+        <div *ngIf="documentacionForm.get('detalles')?.invalid && (documentacionForm.get('detalles')?.dirty || documentacionForm.get('detalles')?.touched)">
+          <small class="text-danger">Los detalles son obligatorios.</small>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="documentacionForm.invalid">Registrar Defensa</button>
+    </form>
+  </div>
+  

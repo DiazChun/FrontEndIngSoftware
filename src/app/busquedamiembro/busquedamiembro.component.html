@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Búsqueda de Miembro</h2>
+    <form [formGroup]="busquedaForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="id">ID del Miembro</label>
+        <input id="id" formControlName="id" type="number" class="form-control" placeholder="Ingrese el ID del miembro" />
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!busquedaForm.valid">Buscar</button>
+    </form>
+  
+    <div *ngIf="miembro && persona" class="result">
+      <h3>Información del Miembro</h3>
+      <p><strong>ID:</strong> {{ miembro.id }}</p>
+      <p><strong>Fecha de Ingreso:</strong> {{ miembro.fechaIngreso | date }}</p>
+      <p><strong>Activo:</strong> {{ miembro.activo ? 'Sí' : 'No' }}</p>
+  
+      <h3>Información de la Persona</h3>
+      <p><strong>Nombre:</strong> {{ persona.nombre }} {{ persona.apellido }}</p>
+      <p><strong>Fecha de Nacimiento:</strong> {{ persona.fechaNacimiento | date }}</p>
+      <p><strong>Dirección:</strong> {{ persona.direccion }}</p>
+      <p><strong>Teléfono:</strong> {{ persona.telefono }}</p>
+      <p><strong>Correo Electrónico:</strong> {{ persona.correoElectronico }}</p>
+      <p><strong>Género:</strong> {{ persona.genero }}</p>
+      <p><strong>Estado Civil:</strong> {{ persona.estadoCivil }}</p>
+      <p><strong>Nacionalidad:</strong> {{ persona.nacionalidad }}</p>
+    </div>
+  </div>
+  
+  

@@ -1,0 +1,11 @@
+.Content{
+    display: flex;
+}
+.Content_Menu{
+    height: 100%;
+    width: 20%;;
+}
+.Content_Compnents{
+    height: 100%;
+    width: 80%;
+}
